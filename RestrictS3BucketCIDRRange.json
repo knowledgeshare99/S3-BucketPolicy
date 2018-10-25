@@ -1,0 +1,26 @@
+{
+    "Version": "2012-10-17",
+    "Id": "S3PolicyIdPlatformAd",
+    "Statement": [
+        {
+            "Sid": "IPAllow",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::BUcketname/*",
+            "Condition": {
+                "NotIpAddress": {
+                    "aws:SourceIp": "192.222.33.192/32"
+                },
+                "IpAddress": {
+                    "aws:SourceIp": [
+                        "244.244.122.0/24",
+                        "193.225.0.0/16",
+                        "155.45.117.0/24",
+                        "133.44.80.0/20"
+                    ]
+                }
+            }
+        }
+    ]
+}
